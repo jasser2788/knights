@@ -1,0 +1,8 @@
+void initialiserobject(object *ob)
+{
+ 
+    ob->carreau = loadImageN("graphics/object.png");
+
+    ob->x = 200;
+    ob->y = 45;
+}

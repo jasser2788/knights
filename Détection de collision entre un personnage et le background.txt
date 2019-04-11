@@ -1,0 +1,42 @@
+#include <stdio.h>
+#include <SDL/SDL.h>
+
+
+void pause()
+{
+    int continuer = 1;
+    SDL_Event event;
+
+    while (continuer)
+    {
+        SDL_WaitEvent(&event);
+        switch(event.type)
+        {
+            case SDL_QUIT:
+                continuer = 0;
+        }
+    }
+}
+int main(void)
+{
+SDL_Surface *ecran = NULL,*image=NULL;
+
+    SDL_Rect position;
+    
+
+    SDL_Init(SDL_INIT_VIDEO);
+
+    ecran = SDL_SetVideoMode(640, 256, 32, SDL_HWSURFACE);
+
+    SDL_FillRect(ecran, NULL, SDL_MapRGB(ecran->format, 0, 255, 0));
+
+  
+
+    SDL_Flip(ecran);
+    pause();
+
+   
+    SDL_Quit();
+
+    return EXIT_SUCCESS;
+}
