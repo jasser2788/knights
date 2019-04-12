@@ -289,11 +289,10 @@ void drawanimatedplayer()
         player.frameNumber++;
 
         //Mais si on dépasse la frame max, il faut revenir à la première
-        //Pour connaître la frame max, il suffit de diviser la longueur du spritesheet
-        //par la longueur de notre héros : 480 / 40 = 12 frames
-        //Puisque la première frame est la numéro 0, la dernière est donc la numéro 11
+       
+        //Puisque la première frame est la numéro 0, la dernière est donc la numéro 3
 
-        if(player.frameNumber >= player.sprite->w / PLAYER_WIDTH)
+        if(player.frameNumber >= 3)
             player.frameNumber = 0;
 
     }
