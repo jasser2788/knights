@@ -6,8 +6,8 @@
   #include <SDL_image.h>
 
  /* Taille de la fenêtre / résolution en plein écran */
-  #define SCREEN_WIDTH 640
-  #define SCREEN_HEIGHT 480
+  #define SCREEN_WIDTH 
+  #define SCREEN_HEIGHT 
 
  #define PLAYER_WIDTH 1366
  #define PLAYER_HEIGTH 419
