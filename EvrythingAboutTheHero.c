@@ -51,7 +51,7 @@
  typedef struct Input
   {
 
-    int left, right, up, down, jump, attack, enter, erase, pause;
+    int left, right, up, down, jump, attack,  pause;
 
   } Input;
 
@@ -147,9 +147,7 @@ void getInput()
                         exit(0);
                     break;
 
-                    case SDLK_DELETE:
-                        input.erase = 1;
-                    break;
+                  
 
                     case SDLK_c:
                         input.jump = 1;
@@ -187,9 +185,7 @@ void getInput()
             case SDL_KEYUP:
                 switch (event.key.keysym.sym)
                 {
-                    case SDLK_DELETE:
-                        input.erase = 0;
-                    break;
+                  
 
                     case SDLK_c:
                         input.jump = 0;
