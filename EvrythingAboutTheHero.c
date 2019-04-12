@@ -10,7 +10,7 @@
   #define SCREEN_HEIGHT 480
 
  #define PLAYER_WIDTH 1366
- #define PLAYER_HEIGTH 250
+ #define PLAYER_HEIGTH 419
 
  #define MAX_MAP_X 400
  #define MAX_MAP_Y 300
