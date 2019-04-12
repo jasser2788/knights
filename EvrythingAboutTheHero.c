@@ -15,6 +15,8 @@
  #define MAX_MAP_X 400
  #define MAX_MAP_Y 300
 
+#define PLAYER_SPEED 4
+
 
  
  
