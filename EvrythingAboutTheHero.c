@@ -12,8 +12,8 @@
  #define PLAYER_WIDTH 1366
  #define PLAYER_HEIGTH 419
 
- #define MAX_MAP_X 400
- #define MAX_MAP_Y 300
+ #define MAX_MAP_X 
+ #define MAX_MAP_Y 
 
 #define PLAYER_SPEED 4
 
@@ -61,14 +61,12 @@
 
       SDL_Surface *background, *tileSet;
      
-    /* Coordonnées de début, lorsqu'on doit dessiner la map */
-    int startX, startY;
+    
 
     /* Coordonnées max de fin de la map */
     int maxX, maxY;
 
-    /* Tableau à double dimension représentant la map de tiles */
-    int tile[MAX_MAP_Y][MAX_MAP_X];
+   
 
   } Map;
    
