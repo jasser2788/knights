@@ -1,81 +1,34 @@
-#include <stdlib.h>
-#include <stdio.h>
+#include "defs.h"
+#include "jeu.h"
 #include <SDL/SDL.h>
-#include <SDL/SDL_image.h> 
-#include <SDL/SDL_mixer.h> 
-#include "header.h"
-int main(void)
+
+
+int main ( int argc, char** argv )
 {
-    SDL_Surface *ecran = NULL, *background = NULL, *image1 = NULL;
-    SDL_Rect positionbackground,positionimage1;
-    
-    int a;
-		//fonction 
 
-SDL_Rect clip[3];
+	SDL_Surface *screen;
+	// initialize SDL video
+	if ( SDL_Init( SDL_INIT_VIDEO ) < 0 ) {
+		printf( "Unable to init SDL: %s\n", SDL_GetError() );
+		return 1;
+	}
 
+	// make sure SDL cleans up before exit
+	atexit(SDL_Quit);
 
+	// create a new window
+	screen = SDL_SetVideoMode(SCREEN_W, SCREEN_H, 32,SDL_HWSURFACE|SDL_DOUBLEBUF | SDL_SRCALPHA);
 
-clip[0].x=0;
-clip[0].y=0;
-clip[0].w=200;
-clip[0].h=250;
-
-clip[1].x=411;
-clip[1].y=0;
-clip[1].w=240;
-clip[1].h=250;
-
-clip[2].x=780;
-clip[2].y=0;
-clip[2].w=240;
-clip[2].h=250;
-
-clip[3].x=1175;
-clip[3].y=0;
-clip[3].w=240;
-clip[3].h=250;
-
-SDL_Rect camera;
-camera.x=0;
-camera.y=0;
-camera.w=1300;
-camera.h=475;
+	if ( !screen ) {
+		printf("Unable to set 600x300 video: %s\n", SDL_GetError());
+		return 1;
+	}
 
 
-		//finfonction 
-    positionbackground.x = 0;
-    positionbackground.y = 0;
-    positionimage1.x = 0;
-    positionimage1.y = 250;
-    positionimage1.w=200;
-    positionimage1.h=250;
- 
-
-    a=SDL_Init(SDL_INIT_VIDEO);
+	jouer(screen);
 
 
-    ecran = SDL_SetVideoMode(1300, 475, 32, SDL_HWSURFACE|SDL_DOUBLEBUF|SDL_RESIZABLE);
-    SDL_WM_SetCaption("Chargement d'images en SDL", NULL);
- 
-    background = SDL_LoadBMP("background.bmp");
-    SDL_BlitSurface(background,&camera, ecran, &positionbackground);
- 
-    
-    image1 = SDL_LoadBMP("charsetf.bmp");
-   //
-	//SDL_BlitSurface(image1,&clip[0],ecran,&positionimage1);
- 
-SDL_Flip(ecran);
-SDL_SetColorKey(image1 ,SDL_SRCCOLORKEY, SDL_MapRGB(image1->format, 255,255,255));
-SDL_EnableKeyRepeat(75,30);
-SDL_ShowCursor(SDL_DISABLE);
-	anim_scroll(clip , ecran , background ,image1 , camera ,positionbackground,  positionimage1);
-       SDL_FreeSurface(background);
-    SDL_FreeSurface(image1);
-    
-    SDL_Quit();
-
-    return 0;
+	// all is well ;)
+	printf("Exited cleanly\n");
+	return 0;
 }
-
